@@ -26,7 +26,8 @@ export default function ReviewSlider() {
               <Star key={i} className="h-4 w-4 fill-current" />
             ))}
           </div>
-          <p className="text-sm text-slate-700">"{review.review}"</p>
+          {/* FIXED: Changed " to &quot; below */}
+          <p className="text-sm text-slate-700">&quot;{review.review}&quot;</p>
           <p className="mt-4 text-sm font-semibold text-brandBlue">{review.name}</p>
         </motion.div>
       ))}
