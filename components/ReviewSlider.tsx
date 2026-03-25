@@ -27,7 +27,7 @@ export default function ReviewSlider() {
             ))}
           </div>
           {/* FIXED: Changed " to &quot; below */}
-          <p className="text-sm text-slate-700">&quot;{review.review}&quot;</p>
+          <p className="text-sm text-slate-700">{review.review}</p>
           <p className="mt-4 text-sm font-semibold text-brandBlue">{review.name}</p>
         </motion.div>
       ))}

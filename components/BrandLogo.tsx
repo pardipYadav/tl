@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 interface BrandLogoProps {
@@ -31,13 +32,19 @@ export default function BrandLogo({ compact = false }: BrandLogoProps) {
   // #endregion
 
   const image = (
+  <Link href="/">
     <img
       src="/logo.png"
       alt="Divine Simparna Holidays"
       onError={() => setImgError(true)}
-      className={compact ? 'h-19 w-auto max-w-[280px] object-contain' : 'h-20 w-auto max-w-[360px] object-contain'}
+      className={
+        compact
+          ? "h-19 w-auto max-w-[280px] object-contain cursor-pointer"
+          : "h-20 w-auto max-w-[360px] object-contain cursor-pointer"
+      }
     />
-  );
+  </Link>
+);
 
   const fallback = (
     <span className={compact ? 'text-base font-semibold text-brandBlue' : 'text-lg font-semibold text-brandBlue'}>
