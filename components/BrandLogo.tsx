@@ -1,56 +1,39 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 interface BrandLogoProps {
-  compact?: boolean;
+  variant?: 'header' | 'footer';
+  link?: boolean;
 }
 
-export default function BrandLogo({ compact = false }: BrandLogoProps) {
+export default function BrandLogo({ variant = 'header', link = true }: BrandLogoProps) {
   const [imgError, setImgError] = useState(false);
 
-  // #region agent log
-  useEffect(() => {
-    fetch('http://127.0.0.1:7396/ingest/007e1c08-2efe-483f-aa9f-ec04fc4bd93f', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Debug-Session-Id': 'ce35a8'
-      },
-      body: JSON.stringify({
-        sessionId: 'ce35a8',
-        runId: 'pre-fix-BrandLogo',
-        hypothesisId: 'H1',
-        location: 'components/BrandLogo.tsx:render',
-        message: 'BrandLogo rendered (no anchor)',
-        data: { compact },
-        timestamp: Date.now()
-      })
-    }).catch(() => {});
-  }, [compact]);
-  // #endregion
-
   const image = (
-  <Link href="/">
     <img
       src="/logo.png"
-      alt="Divine Simparna Holidays"
+      alt="Divine Simparna Pvt Ltd"
       onError={() => setImgError(true)}
       className={
-        compact
-          ? "h-19 w-auto max-w-[280px] object-contain cursor-pointer"
-          : "h-20 w-auto max-w-[360px] object-contain cursor-pointer"
+        variant === 'footer'
+          ? 'h-[100px] w-auto max-w-[380px] object-contain object-left sm:h-[110px] sm:max-w-[420px]'
+          : 'h-[84px] w-auto max-w-[320px] object-contain sm:h-[100px] sm:max-w-[380px] lg:h-[110px] lg:max-w-[420px]'
       }
     />
-  </Link>
-);
+  );
 
   const fallback = (
-    <span className={compact ? 'text-base font-semibold text-brandBlue' : 'text-lg font-semibold text-brandBlue'}>
-      Divine <span className="text-brandOrange">Simparna</span>
+    <span className="font-heading text-2xl font-bold tracking-tight text-[#0B2548] sm:text-3xl">
+      Divine <span className="text-[#C4A053]">Simparna</span>
     </span>
   );
 
-  return imgError ? fallback : image;
+  const content = (
+    <span className="inline-flex items-center transition-opacity hover:opacity-90">{imgError ? fallback : image}</span>
+  );
+
+  if (!link) return content;
+  return <Link href="/">{content}</Link>;
 }

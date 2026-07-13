@@ -11,6 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/packages`, lastModified: new Date() },
     { url: `${base}/blog`, lastModified: new Date() },
     { url: `${base}/booking`, lastModified: new Date() },
+    { url: `${base}/privacy`, lastModified: new Date() },
+    { url: `${base}/terms`, lastModified: new Date() },
     ...destinations.map((d) => ({ url: `${base}/destinations/${d.slug}`, lastModified: new Date() })),
     ...samplePackages.map((p) => ({ url: `${base}/packages/${p.slug}`, lastModified: new Date() })),
     ...sampleBlogs.map((b) => ({ url: `${base}/blog/${b.slug}`, lastModified: new Date() }))

@@ -29,7 +29,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="mx-auto max-w-md rounded-2xl border border-blue-100 bg-white p-6 shadow-card">
+    <div className="mx-auto max-w-md rounded-2xl border border-[#e8e0d0] bg-white p-6 shadow-card">
       <h1 className="text-2xl font-bold">Login</h1>
       <p className="mt-1 text-sm text-slate-600">Access bookings, wishlist, and personalized dashboard.</p>
 

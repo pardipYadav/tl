@@ -14,7 +14,7 @@ export default async function DashboardPage() {
   return (
     <div className="space-y-6">
       <h1 className="text-3xl font-bold">My Dashboard</h1>
-      <div className="rounded-2xl border border-blue-100 bg-white p-6 shadow-card">
+      <div className="rounded-2xl border border-[#e8e0d0] bg-white p-6 shadow-card">
         <h2 className="text-xl font-semibold">My Bookings</h2>
         <div className="mt-4 space-y-3">
           {bookings.length ? (

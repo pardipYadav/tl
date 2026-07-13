@@ -45,15 +45,15 @@ export default function NewsletterForm() {
   };
 
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-card">
-      <h3 className="text-2xl font-bold">Newsletter Subscription</h3>
+    <div className="rounded-3xl border border-[#e8e0d0] bg-white p-8 shadow-card">
+      <h3 className="text-2xl font-bold text-brandNavy">Newsletter Subscription</h3>
       <p className="mt-3 text-slate-600">Get latest travel deals and destination guides.</p>
 
       <form onSubmit={onSubmit} className="mt-4 space-y-3">
         <div className="flex flex-col gap-2 sm:flex-row">
           <input
             placeholder="Your name (optional)"
-            className="w-full rounded-xl border border-slate-300 p-3 text-sm outline-none focus:border-brandBlue"
+            className="w-full rounded-xl border border-slate-300 p-3 text-sm outline-none focus:border-brandNavy"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
@@ -61,7 +61,7 @@ export default function NewsletterForm() {
             required
             type="email"
             placeholder="Enter your email"
-            className="w-full rounded-xl border border-slate-300 p-3 text-sm outline-none focus:border-brandBlue"
+            className="w-full rounded-xl border border-slate-300 p-3 text-sm outline-none focus:border-brandNavy"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -70,7 +70,7 @@ export default function NewsletterForm() {
         <button
           type="submit"
           disabled={status === 'loading'}
-          className="inline-flex w-full items-center justify-center rounded-xl bg-brandBlue px-4 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-slate-400 sm:w-auto"
+          className="inline-flex w-full items-center justify-center rounded-xl bg-brandNavy px-4 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#16396a] disabled:cursor-not-allowed disabled:bg-slate-400 sm:w-auto"
         >
           {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
         </button>

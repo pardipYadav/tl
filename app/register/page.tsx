@@ -30,7 +30,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="mx-auto max-w-md rounded-2xl border border-blue-100 bg-white p-6 shadow-card">
+    <div className="mx-auto max-w-md rounded-2xl border border-[#e8e0d0] bg-white p-6 shadow-card">
       <h1 className="text-2xl font-bold">Create Account</h1>
       <form onSubmit={onSubmit} className="mt-4 space-y-3">
         <input className="w-full rounded-lg border p-3" placeholder="Full name" value={name} onChange={(e) => setName(e.target.value)} />

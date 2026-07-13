@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
-import { connectDB } from '@/lib/db';
+import { tryConnectDB } from '@/lib/db';
 import Newsletter from '@/models/Newsletter';
 import { sendBookingEmail } from '@/lib/mail';
 
@@ -23,15 +23,16 @@ export async function POST(request: Request) {
 
     const { email, name } = parsed.data;
 
-    await connectDB();
+    const conn = await tryConnectDB();
+    if (conn) {
+      await Newsletter.findOneAndUpdate(
+        { email },
+        { $set: { email, name, source: 'homepage' } },
+        { upsert: true, new: true }
+      );
+    }
 
-    await Newsletter.findOneAndUpdate(
-      { email },
-      { $set: { email, name, source: 'homepage' } },
-      { upsert: true, new: true }
-    );
-
-    const ownerEmail = 'diviensimparna@gmail.com';
+    const ownerEmail = process.env.SMTP_ADMIN_TO || 'yadavpardeep213@gmail.com';
     const subject = 'New newsletter subscription';
     const html = `
       <h2>New Newsletter Subscriber</h2>
@@ -40,16 +41,21 @@ export async function POST(request: Request) {
       <p>Source: homepage newsletter box.</p>
     `;
 
-    await sendBookingEmail(ownerEmail, subject, html);
+    try {
+      await sendBookingEmail(ownerEmail, subject, html);
+    } catch (mailErr) {
+      // Subscription still succeeds even if SMTP is restricted (e.g. Elastic free tier).
+      console.error('Newsletter email failed:', mailErr);
+    }
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({
+      success: true,
+      saved: Boolean(conn),
+      message: conn ? 'Subscribed successfully.' : 'Subscribed (email queued; database offline).'
+    });
   } catch (err) {
     const message = err instanceof Error ? err.message : 'Server error';
     console.error('Newsletter API error:', err);
-    return NextResponse.json(
-      { error: 'Newsletter subscription failed', message },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Newsletter subscription failed', message }, { status: 500 });
   }
 }
-

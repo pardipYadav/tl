@@ -11,9 +11,9 @@ const manrope = Manrope({ subsets: ['latin'], variable: '--font-body' });
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-heading' });
 
 export const metadata: Metadata = {
-  title: 'Divine Simparna Holidays | Premium Tour & Travel Booking',
-  description: 'Book curated domestic and international tour packages with Divine Simparna Holidays.',
-  keywords: ['tour package', 'travel booking', 'holiday packages', 'Divine Simparna Holidays'],
+  title: 'Divine Simparna Pvt Ltd | Travel · Import · Export',
+  description: 'Premium tour & travel booking and global logistics with Divine Simparna Pvt Ltd.',
+  keywords: ['tour package', 'travel booking', 'Divine Simparna', 'importer', 'exporter'],
   metadataBase: new URL('http://localhost:3000'),
   icons: {
     icon: '/logo.png',

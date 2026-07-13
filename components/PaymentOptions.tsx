@@ -40,7 +40,7 @@ export default function PaymentOptions({ amount }: { amount: number }) {
   };
 
   return (
-    <div className="rounded-2xl border border-blue-100 bg-white p-6 shadow-card">
+    <div className="hidden rounded-2xl border border-[#e8e0d0] bg-white p-6 shadow-card">
       <h3 className="text-xl font-semibold">Pay Online</h3>
       <p className="mt-1 text-sm text-slate-600">Supports cards, Google Pay, UPI, and wallet flows via Stripe/Razorpay checkout.</p>
       <div className="mt-4 grid gap-2">

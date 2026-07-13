@@ -6,18 +6,25 @@ export async function sendBookingEmail(to: string, subject: string, html: string
     return;
   }
 
+  const port = Number(process.env.SMTP_PORT || 587);
+
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT || 587),
-    secure: false,
+    port,
+    secure: port === 465,
+    requireTLS: port !== 465,
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS
+    },
+    tls: {
+      minVersion: 'TLSv1.2',
+      rejectUnauthorized: true
     }
   });
 
   await transporter.sendMail({
-    from: process.env.SMTP_FROM,
+    from: process.env.SMTP_FROM || process.env.SMTP_USER,
     to,
     subject,
     html

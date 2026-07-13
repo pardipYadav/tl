@@ -14,7 +14,7 @@ export default function FilterSidebar() {
   };
 
   return (
-    <aside className="space-y-5 rounded-2xl border border-blue-100 bg-white p-5 shadow-card">
+    <aside className="space-y-5 rounded-2xl border border-[#e8e0d0] bg-white p-5 shadow-card">
       <h3 className="text-lg font-semibold">Filters</h3>
 
       <div>

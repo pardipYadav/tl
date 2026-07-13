@@ -18,10 +18,10 @@ export default function HomePage() {
       <section>
         <div className="mb-7 flex items-end justify-between">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-brandBlue">Curated Collection</p>
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-brandGold">Curated Collection</p>
             <h2 className="mt-2 text-4xl font-bold">Featured Tour Packages</h2>
           </div>
-          <Link href="/packages" className="text-sm font-semibold text-brandBlue">View all packages</Link>
+          <Link href="/packages" className="text-sm font-semibold text-brandNavy hover:text-brandGold">View all packages</Link>
         </div>
         <div className="grid gap-6 md:grid-cols-3">
           {samplePackages.map((pkg) => (
@@ -54,16 +54,18 @@ export default function HomePage() {
       <section className="section-shell">
         <h2 className="text-4xl font-bold">Why Choose Us</h2>
         <div className="mt-6 grid gap-4 md:grid-cols-4">
-          <div className="rounded-2xl border border-blue-100 bg-brandSoft p-4 font-semibold">Curated itineraries</div>
-          <div className="rounded-2xl border border-blue-100 bg-brandSoft p-4 font-semibold">Transparent pricing</div>
-          <div className="rounded-2xl border border-blue-100 bg-brandSoft p-4 font-semibold">24x7 travel support</div>
-          <div className="rounded-2xl border border-blue-100 bg-brandSoft p-4 font-semibold">Visa and payment assistance</div>
+          <div className="rounded-2xl border border-[#e8e0d0] bg-brandSoft p-4 font-semibold text-brandNavy">Curated itineraries</div>
+          <div className="rounded-2xl border border-[#e8e0d0] bg-brandSoft p-4 font-semibold text-brandNavy">Transparent pricing</div>
+          <div className="rounded-2xl border border-[#e8e0d0] bg-brandSoft p-4 font-semibold text-brandNavy">24x7 travel support</div>
+          <div className="rounded-2xl border border-[#e8e0d0] bg-brandSoft p-4 font-semibold text-brandNavy">Visa and payment assistance</div>
         </div>
       </section>
 
       <section>
         <h2 className="mb-3 text-4xl font-bold">Testimonials & Google Reviews</h2>
-        <p className="mb-6 text-sm text-slate-600">Google Rating: 4.8/5 based on 2,100+ traveler reviews.</p>
+        <p className="mb-6 text-sm text-slate-600">
+          Traveler favorites — curated reviews from Divine Simparna journeys.
+        </p>
         <ReviewSlider />
       </section>
 
@@ -76,15 +78,30 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="grid gap-6 md:grid-cols-2">
-        <div className="rounded-3xl bg-gradient-to-br from-blue-700 via-brandBlue to-orange-500 p-8 text-white shadow-card">
-          <h3 className="text-2xl font-bold">Special Offers</h3>
-          <p className="mt-3 text-white/90">Flat 15% off on international packages. Use code: DIVINE15</p>
-          <Link href="/packages" className="mt-6 inline-block rounded-xl bg-white px-4 py-2 font-semibold text-blue-700">
-            Explore Deals
-          </Link>
+      {/* Temporarily unavailable — blurred / non-interactive */}
+      <section className="relative">
+        <div className="pointer-events-none select-none blur-[2px] opacity-50 grayscale-[30%]" aria-hidden>
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="rounded-3xl bg-gradient-to-br from-[#0B2548] via-[#16396a] to-[#C4A053] p-8 text-white shadow-card">
+              <h3 className="text-2xl font-bold text-white">Special Offers</h3>
+              <p className="mt-3 text-white/90">Flat 15% off on international packages. Use code: DIVINE15</p>
+              <span className="mt-6 inline-block rounded-xl bg-white px-4 py-2 font-semibold text-[#0B2548]">
+                Explore Deals
+              </span>
+            </div>
+            <NewsletterForm />
+          </div>
         </div>
-        <NewsletterForm />
+
+        <div className="absolute inset-0 z-10 flex items-center justify-center rounded-3xl bg-[#0B2548]/25 backdrop-blur-[1px]">
+          <div className="mx-4 rounded-2xl border border-[#C4A053]/50 bg-[#0B2548]/95 px-8 py-5 text-center shadow-lg">
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#C4A053]">Coming Soon</p>
+            <p className="mt-2 text-[15px] font-semibold text-white">
+              Special Offers &amp; Newsletter
+            </p>
+            <p className="mt-1 text-sm text-white/75">These options are temporarily unavailable.</p>
+          </div>
+        </div>
       </section>
 
       <AITripPlanner />

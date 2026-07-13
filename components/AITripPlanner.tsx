@@ -20,7 +20,7 @@ export default function AITripPlanner() {
   };
 
   return (
-    <div className="rounded-2xl border border-blue-100 bg-white p-6 shadow-card">
+    <div className="hidden rounded-2xl border border-[#e8e0d0] bg-white p-6 shadow-card">
       <h3 className="text-xl font-semibold text-brandBlue">AI Trip Planner</h3>
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
         <input value={destination} onChange={(e) => setDestination(e.target.value)} className="rounded-lg border p-2" placeholder="Destination" />
