@@ -42,7 +42,7 @@ export default function Navbar() {
             className="inline-flex items-center gap-2 font-medium text-white transition hover:text-[#C4A053]"
           >
             <Phone className="h-3.5 w-3.5 text-[#C4A053]" />
-            +91 98765 43210
+            +91 82848 79420
           </a>
         </div>
       </div>
