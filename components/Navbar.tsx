@@ -38,7 +38,7 @@ export default function Navbar() {
           </p>
           <p className="font-medium text-[#C4A053] sm:hidden">Divine Simparna</p>
           <a
-            href="tel:+919876543210"
+            href="tel:+918284879420"
             className="inline-flex items-center gap-2 font-medium text-white transition hover:text-[#C4A053]"
           >
             <Phone className="h-3.5 w-3.5 text-[#C4A053]" />
