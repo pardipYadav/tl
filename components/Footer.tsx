@@ -5,7 +5,7 @@ import BrandLogo from '@/components/BrandLogo';
 
 const quickLinks: { href: Route; label: string }[] = [
   { href: '/', label: 'Home' },
-  { href: '/destinations/dubai', label: 'Destinations' },
+  { href: '/destinations/dubai' as Route, label: 'Destinations' },
   { href: '/packages', label: 'Packages' },
   { href: '/blog', label: 'Blog' },
   { href: '/booking', label: 'Book a Trip' }

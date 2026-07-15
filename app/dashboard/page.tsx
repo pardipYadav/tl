@@ -9,7 +9,12 @@ export default async function DashboardPage() {
   if (!session?.user) redirect('/api/auth/signin');
 
   await connectDB();
-  const bookings = await Booking.find({ user: session.user.id }).sort({ createdAt: -1 }).lean();
+  const bookings = (await Booking.find({ user: session.user.id }).sort({ createdAt: -1 }).lean()) as unknown as Array<{
+    _id: { toString(): string };
+    destination: string;
+    status: string;
+    paymentStatus: string;
+  }>;
 
   return (
     <div className="space-y-6">

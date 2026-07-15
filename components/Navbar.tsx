@@ -9,7 +9,7 @@ import BrandLogo from '@/components/BrandLogo';
 
 const leftNavLinks: { href: Route; label: string }[] = [
   { href: '/', label: 'Home' },
-  { href: '/destinations/dubai', label: 'Destinations' },
+  { href: '/destinations/dubai' as Route, label: 'Destinations' },
   { href: '/packages', label: 'Packages' }
 ];
 
