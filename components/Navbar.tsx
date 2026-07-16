@@ -32,9 +32,9 @@ export default function Navbar() {
           <p className="hidden font-medium tracking-[0.08em] text-white/90 sm:block">
             <span className="font-semibold text-[#C4A053]">TRAVELING</span>
             <span className="mx-2 text-[#C4A053]/50">·</span>
-            IMPORTER
+            {/* IMPORTER */}
             <span className="mx-2 text-[#C4A053]/50">·</span>
-            EXPORTER
+            {/* EXPORTER */}
           </p>
           <p className="font-medium text-[#C4A053] sm:hidden">Divine Simparna</p>
           <a

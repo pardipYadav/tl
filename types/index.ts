@@ -34,3 +34,22 @@ export interface BlogType {
   author: string;
   publishedAt: string;
 }
+
+export interface GoogleReview {
+  id: string;
+  authorName: string;
+  authorPhotoUrl: string | null;
+  authorUrl: string | null;
+  rating: number;
+  text: string;
+  relativeTime: string;
+  publishedAt: string | null;
+}
+
+export interface GoogleReviewsResponse {
+  reviews: GoogleReview[];
+  rating: number | null;
+  totalReviews: number | null;
+  mapsUrl: string | null;
+  sort: 'newest';
+}

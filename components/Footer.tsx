@@ -40,7 +40,8 @@ export default function Footer() {
             </p>
 
             <p className="mt-4 text-[12px] font-bold uppercase tracking-[0.2em] text-[#C4A053]">
-              Traveling · Importer · Exporter
+            Traveling
+              {/* Traveling · Importer · Exporter */}
             </p>
 
             <div className="mt-8 space-y-4">

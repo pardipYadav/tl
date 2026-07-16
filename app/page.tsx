@@ -62,9 +62,9 @@ export default function HomePage() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-4xl font-bold">Testimonials & Google Reviews</h2>
+        <h2 className="mb-3 text-4xl font-bold">Google Reviews</h2>
         <p className="mb-6 text-sm text-slate-600">
-          Traveler favorites — curated reviews from Divine Simparna journeys.
+          Real traveler feedback from our Google Business Profile, newest first.
         </p>
         <ReviewSlider />
       </section>
