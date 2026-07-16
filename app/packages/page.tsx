@@ -1,11 +1,31 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
 import PackageCard from '@/components/PackageCard';
 import FilterSidebar from '@/components/FilterSidebar';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import { tryConnectDB } from '@/lib/db';
 import Package from '@/models/Package';
 import { samplePackages } from '@/data/packages';
 import { PackageType } from '@/types';
+import { buildMetadata } from '@/lib/seo';
 
 export const revalidate = 60;
+
+export const metadata: Metadata = buildMetadata({
+  title: 'Tour Packages',
+  description:
+    'Browse curated domestic and international tour packages from Divine Simparna Holidays. Filter by destination, travel type, and budget — Dubai, Bali, Thailand, Maldives, Europe, Goa & more.',
+  path: '/packages',
+  keywords: [
+    'tour packages',
+    'holiday packages',
+    'international tour packages from India',
+    'Dubai package',
+    'Bali package',
+    'Thailand package',
+    'book tour online'
+  ]
+});
 
 export default async function PackagesPage({
   searchParams
@@ -65,10 +85,22 @@ export default async function PackagesPage({
 
   return (
     <div className="space-y-8">
-      <div>
+      <Breadcrumbs items={[{ name: 'Packages', path: '/packages' }]} />
+
+      <header>
         <h1 className="text-4xl font-bold">Tour Packages</h1>
-        <p className="text-slate-600">Find the perfect trip with advanced filters and transparent pricing.</p>
-      </div>
+        <p className="mt-2 text-slate-600">
+          Find the perfect trip with advanced filters and transparent pricing. Looking for inspiration?{' '}
+          <Link href="/destinations" className="font-semibold text-brandGold hover:underline">
+            Explore destinations
+          </Link>{' '}
+          or{' '}
+          <Link href="/booking" className="font-semibold text-brandGold hover:underline">
+            request a custom quote
+          </Link>
+          .
+        </p>
+      </header>
 
       <div className="grid gap-6 md:grid-cols-[280px_1fr]">
         <FilterSidebar />
@@ -81,22 +113,23 @@ export default async function PackagesPage({
 
           {items.length === 0 && <p className="text-slate-600">No packages match your filters.</p>}
 
-          <div className="flex items-center justify-between">
+          <nav className="flex items-center justify-between" aria-label="Packages pagination">
             <p className="text-sm text-slate-600">
               Page {page} of {totalPages}
             </p>
             <div className="flex gap-2">
               {Array.from({ length: totalPages }).map((_, i) => (
-                <a
+                <Link
                   key={i}
                   href={`/packages?page=${i + 1}`}
                   className={`rounded-lg px-3 py-1 text-sm ${page === i + 1 ? 'bg-brandNavy text-white' : 'border border-[#e8e0d0]'}`}
+                  aria-current={page === i + 1 ? 'page' : undefined}
                 >
                   {i + 1}
-                </a>
+                </Link>
               ))}
             </div>
-          </div>
+          </nav>
         </div>
       </div>
     </div>

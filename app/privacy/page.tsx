@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { LegalPageShell, LegalSection } from '@/components/LegalPageShell';
+import { buildMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy | Divine Simparna Pvt. Ltd.',
+export const metadata: Metadata = buildMetadata({
+  title: 'Privacy Policy',
   description:
-    'Privacy Policy of Divine Simparna Pvt. Ltd. — how we collect, use, store, and protect customer information for travel and related services.'
-};
+    'Privacy Policy of Divine Simparna Pvt. Ltd. — how we collect, use, store, and protect customer information for travel and related services.',
+  path: '/privacy'
+});
 
 export default function PrivacyPolicyPage() {
   return (

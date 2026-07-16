@@ -31,7 +31,12 @@ export default function HomePage() {
       </section>
 
       <section>
-        <h2 className="mb-6 text-4xl font-bold">Popular Destinations</h2>
+        <div className="mb-6 flex items-end justify-between gap-4">
+          <h2 className="text-4xl font-bold">Popular Destinations</h2>
+          <Link href="/destinations" className="text-sm font-semibold text-brandNavy hover:text-brandGold">
+            View all destinations
+          </Link>
+        </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {destinations.slice(0, 4).map((d) => (
             <DestinationCard key={d.slug} name={d.name} slug={d.slug} image={d.image} country={d.country} />
@@ -70,7 +75,12 @@ export default function HomePage() {
       </section>
 
       <section>
-        <h2 className="mb-6 text-4xl font-bold">Travel Blogs</h2>
+        <div className="mb-6 flex items-end justify-between gap-4">
+          <h2 className="text-4xl font-bold">Travel Blogs</h2>
+          <Link href="/blog" className="text-sm font-semibold text-brandNavy hover:text-brandGold">
+            View all posts
+          </Link>
+        </div>
         <div className="grid gap-6 md:grid-cols-3">
           {sampleBlogs.map((blog) => (
             <BlogCard key={blog.slug} blog={blog} />

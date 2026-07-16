@@ -13,7 +13,13 @@ export default function PackageCard({ item }: { item: PackageType }) {
       className="group overflow-hidden rounded-2xl border border-[#e8e0d0] bg-white shadow-card transition hover:-translate-y-1"
     >
       <div className="relative h-56 overflow-hidden">
-        <Image src={item.coverImage} alt={item.title} fill className="object-cover transition duration-500 group-hover:scale-105" />
+        <Image
+          src={item.coverImage}
+          alt={`${item.title} — ${item.destination} tour package`}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+          className="object-cover transition duration-500 group-hover:scale-105"
+        />
         {item.discountPercent ? (
           <span className="absolute left-3 top-3 rounded-full bg-brandGold px-3 py-1 text-xs font-bold text-brandNavy">
             {item.discountPercent}% OFF

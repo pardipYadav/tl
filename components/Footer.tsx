@@ -5,9 +5,10 @@ import BrandLogo from '@/components/BrandLogo';
 
 const quickLinks: { href: Route; label: string }[] = [
   { href: '/', label: 'Home' },
-  { href: '/destinations/dubai' as Route, label: 'Destinations' },
+  { href: '/destinations', label: 'Destinations' },
   { href: '/packages', label: 'Packages' },
   { href: '/blog', label: 'Blog' },
+  { href: '/contact', label: 'Contact Us' },
   { href: '/booking', label: 'Book a Trip' }
 ];
 
@@ -52,7 +53,7 @@ export default function Footer() {
                 +91 82848 79420
               </a>
               <a
-                href="mailto:hello@divinesimparnaholidays.com"
+                href="mailto:info@divinesimparna.com"
                 className="flex items-center gap-3 text-[15px] text-white transition hover:text-[#C4A053]"
               >
                 <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-[#C4A053] ring-1 ring-white/15">

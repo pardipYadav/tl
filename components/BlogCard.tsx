@@ -6,7 +6,13 @@ export default function BlogCard({ blog }: { blog: BlogType }) {
   return (
     <Link href={`/blog/${blog.slug}`} className="overflow-hidden rounded-2xl border border-[#e8e0d0] bg-white shadow-card transition hover:-translate-y-1">
       <div className="relative h-52">
-        <Image src={blog.coverImage} alt={blog.title} fill className="object-cover" />
+        <Image
+          src={blog.coverImage}
+          alt={`${blog.title} — travel blog by Divine Simparna Holidays`}
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
+          className="object-cover"
+        />
       </div>
       <div className="space-y-2 p-5">
         <p className="text-xs font-medium text-brandGold">{new Date(blog.publishedAt).toLocaleDateString()}</p>

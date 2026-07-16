@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { LegalPageShell, LegalSection } from '@/components/LegalPageShell';
+import { buildMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Terms & Conditions | Divine Simparna Pvt. Ltd.',
+export const metadata: Metadata = buildMetadata({
+  title: 'Terms & Conditions',
   description:
-    'Terms & Conditions for booking travel services with Divine Simparna Pvt. Ltd., including payments, cancellations, refunds, liabilities, and travel documents.'
-};
+    'Terms & Conditions for booking travel services with Divine Simparna Pvt. Ltd., including payments, cancellations, refunds, liabilities, and travel documents.',
+  path: '/terms'
+});
 
 export default function TermsAndConditionsPage() {
   return (

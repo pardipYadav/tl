@@ -9,12 +9,13 @@ import BrandLogo from '@/components/BrandLogo';
 
 const leftNavLinks: { href: Route; label: string }[] = [
   { href: '/', label: 'Home' },
-  { href: '/destinations/dubai' as Route, label: 'Destinations' },
+  { href: '/destinations', label: 'Destinations' },
   { href: '/packages', label: 'Packages' }
 ];
 
 const rightNavLinks: { href: Route; label: string }[] = [
   { href: '/blog', label: 'Blog' },
+  { href: '/contact', label: 'Contact' },
   { href: '/booking', label: 'Book Now' }
 ];
 
@@ -82,6 +83,13 @@ export default function Navbar() {
                   ${isActive('/blog') ? 'bg-[#F3EEE3] text-[#0B2548]' : 'text-[#334155] hover:bg-[#F3EEE3] hover:text-[#0B2548]'}`}
               >
                 Blog
+              </Link>
+              <Link
+                href="/contact"
+                className={`rounded-md px-3 py-2 text-[14px] font-semibold tracking-wide transition lg:px-4
+                  ${isActive('/contact') ? 'bg-[#F3EEE3] text-[#0B2548]' : 'text-[#334155] hover:bg-[#F3EEE3] hover:text-[#0B2548]'}`}
+              >
+                Contact
               </Link>
               <Link
                 href="/booking"

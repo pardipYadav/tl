@@ -13,6 +13,31 @@ export const bookingSchema = z.object({
   packageId: z.string().optional()
 });
 
+export const contactInquirySchema = z.object({
+  fullName: z
+    .string()
+    .trim()
+    .min(2, 'Full name must be at least 2 characters')
+    .max(100, 'Full name is too long'),
+  email: z.string().trim().email('Enter a valid email address').max(120),
+  phone: z
+    .string()
+    .trim()
+    .min(8, 'Contact number is too short')
+    .max(20, 'Contact number is too long')
+    .regex(/^[+\d][\d\s\-()]{7,19}$/, 'Enter a valid contact number'),
+  destination: z
+    .string()
+    .trim()
+    .min(2, 'Destination is required')
+    .max(100, 'Destination is too long'),
+  numberOfDays: z.coerce
+    .number({ invalid_type_error: 'Enter number of days' })
+    .int('Days must be a whole number')
+    .min(1, 'Trip must be at least 1 day')
+    .max(365, 'Trip cannot exceed 365 days')
+});
+
 export const reviewSchema = z.object({
   packageId: z.string().min(1),
   rating: z.number().min(1).max(5),
